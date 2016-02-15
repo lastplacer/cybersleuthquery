@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Digimon Story: Cyber Sleuth Querier</h1>
+        </div>
+        <div class="row">
+            <form>
+                <fieldset class="form-group">
+                    <label for="querySelect">Query</label>
+                    <select id="querySelect" class="form-control">
+                        <option value="0">Stats</option>
+                        <option value="1">Type</option>
+                        <option value="2">Attribute</option>
+                        <option value="3">Digivolutions</option>
+                        <option value="4">Skills</option>
+                        <option value="5" selected="selected">Manual</option>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="manualQuery">Manual Query</label>
+                    <input type="text" id="manualQuery" class="form-control">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="statSelect">Stat</label>
+                    <select id="statSelect" class="form-control">
+                        <option value="hp">HP</option>
+                        <option value="sp">SP</option>
+                        <option value="atk">Atk</option>
+                        <option value="int">Int</option>
+                        <option value="def">Def</option>
+                        <option value="spd">Spd</option>
+                    </select>
+                </fieldset>
+                <div class="container">
+                    <fieldset class="form-group">
+                        <label for="statComp">Comparison</label>
+                        <select id="statComp" class="form-control">
+                            <option value=">">Greater than</option>
+                            <option value="<">Less than</option>
+                            <option value="==">Equal to</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="statVal">Value</label>
+                        <input type="text" id="statVal" class="form-control">
+                    </fieldset>
+                </div>
+                <fieldset class="form-group">
+                    <label for="typeSelect">Type</label>
+                    <select id="typeSelect" class="form-control">
+                        <option value="Free">Free</option>
+                        <option value="Vaccine">Vaccine</option>
+                        <option value="Virus">Virus</option>
+                        <option value="Data">Data</option>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="attrSelect">Attribute</label>
+                    <select id="attrSelect" class="form-control">
+                        <option value="Fire">Fire</option>
+                        <option value="Water">Water</option>
+                        <option value="Plant">Plant</option>
+                        <option value="Earth">Earth</option>
+                        <option value="Wind">Wind</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Dark">Dark</option>
+                        <option value="Light">Light</option>
+                        <option value="Neutral">Neutral</option>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="skillVal">Skill</label>
+                    <input type="text" id="skillVal" class="form-control">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="nameSelect">Digimon</label>
+                    <select id="nameSelect" class="form-control"></select>
+                </fieldset>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <br>
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Output</h4>
+                    <p id="output"></p>
+                </div>
+            </div>
+        </div>
+
+        <h4>Example manual queries</h4>
+        <p> Find name of digimon from number<br>
+            <code>select name from digimon where (num==100)</code><br><br>
+
+            Find 'Vaccine' type digimon<br>
+            <code>select name from digimon where (type=='Vaccine')</code><br><br>
+
+            Find digimon that learn given skill<br>
+            <code>select name from digimon where (hasSkill(skills, "Nightmare III"))</code><br><br>
+
+            Find digimon with stat criteria<br>
+            <code>select name from digimon where (lv99Stats.hp > 2500)</code><br><br>
+
+            Find digimon that digivolve to given digimon<br>
+            <code>select name from digimon where (digivolvesTo(current, "Omnimon"))</code><br><br>
+
+            Find digimon that digivolve from given digimon<br>
+            <code>select name from digimon where (digivolvesFrom(current, "Agumon"))</code><br><br>
+
+            Chaining queries<br>
+            <code>select name from digimon where (type=='Vaccine' && attribute=='Fire' && lv99Stats.hp > 2000)</code></p><br>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<script src="jsonsql.js"></script>
+<script src="app.js"></script>
+<link rel="stylesheet" type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+</html>
