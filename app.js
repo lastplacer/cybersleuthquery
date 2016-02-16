@@ -52,7 +52,7 @@ $(document).ready(function(){
     var select = $('#nameSelect');
 
 
-    $.getJSON('concat', function(data){
+    $.getJSON('digimon.json', function(data){
         digimon = data;
 
         var digi = jsonsql.query('select name,num from digimon order by name asc', digimon)
