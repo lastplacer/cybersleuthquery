@@ -95,7 +95,7 @@ $(document).ready(function(){
         var results = jsonsql.query(qStr, digimon);
         $('#output').text('');
         results.forEach(function(curr){
-            $('#output').append(curr.name).append('<br>');
+            $('#output').append(JSON.stringify(curr)).append('<br>');
         })
     })
 });
