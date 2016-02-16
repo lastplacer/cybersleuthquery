@@ -57,7 +57,7 @@ $(document).ready(function(){
 
         var digi = jsonsql.query('select name,num from digimon order by name asc', digimon)
         $.each(digi, function(){
-            select.append($("<option />").val(this.num).text(this.name));
+            select.append($("<option />").val(this.name).text(this.name));
         })
     })
 
